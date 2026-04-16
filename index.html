@@ -103,16 +103,18 @@
     }
 
     .unit-label {
-      font-size: 14px;
-      line-height: 1;
+      font-size: 10px;
+      line-height: 1.1;
       font-weight: 700;
       user-select: none;
+      text-align: center;
+      padding: 2px;
     }
 
     .tooltip {
       position: absolute;
       left: 50%;
-      bottom: calc(100% + 8px);
+      bottom: calc(100% + 2px);
       transform: translateX(-50%);
       background: rgba(17, 24, 39, 0.96);
       color: #fff;
@@ -124,6 +126,16 @@
       transition: opacity 0.18s ease;
       box-shadow: 0 8px 24px rgba(0,0,0,0.18);
       z-index: 3;
+    }
+
+    .tooltip::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 100%;
+      height: 14px;
+      background: transparent;
     }
 
     .hotspot:hover .tooltip {
@@ -177,10 +189,27 @@
       line-height: 1.6;
     }
 
-    code {
-      background: #eef2f6;
-      padding: 2px 6px;
-      border-radius: 6px;
+    @media (max-width: 768px) {
+      body {
+        padding: 18px;
+      }
+
+      .tabs {
+        gap: 8px;
+      }
+
+      .tab-btn {
+        font-size: 13px;
+        padding: 8px 12px;
+      }
+
+      .tooltip {
+        min-width: 190px;
+      }
+
+      .unit-label {
+        font-size: 9px;
+      }
     }
   </style>
 </head>
@@ -208,7 +237,7 @@
           class="hotspot filled-unit"
           style="top: 45%; left: 64%; width: 4%; height: 9%;"
         >
-          <div class="unit-label">52</div>
+          <div class="unit-label">UNIT 52 APT 122</div>
 
           <div class="tooltip">
             <div class="tooltip-title">Unit 52</div>

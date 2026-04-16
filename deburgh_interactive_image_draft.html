@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>De Burgh Floorplate</title>
+  <style>
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      padding: 32px;
+      font-family: Arial, sans-serif;
+      background: #f4f6f8;
+      color: #1f2933;
+    }
+
+    .wrap {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .title {
+      margin: 0 0 10px;
+      font-size: 28px;
+      font-weight: 700;
+    }
+
+    .desc {
+      margin: 0 0 24px;
+      color: #52606d;
+      line-height: 1.6;
+    }
+
+    .floorplate {
+      position: relative;
+      max-width: 1000px;
+      margin: 0 auto;
+      border-radius: 16px;
+      overflow: hidden;
+      background: #ffffff;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+    }
+
+    .floorplate img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .hotspot {
+      position: absolute;
+      display: block;
+      border: 2px solid #2563eb;
+      background: rgba(37, 99, 235, 0.18);
+      border-radius: 6px;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+
+    .hotspot:hover {
+      background: rgba(37, 99, 235, 0.3);
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.18);
+      transform: scale(1.02);
+      z-index: 2;
+    }
+
+    .hotspot::after {
+      content: attr(data-label);
+      position: absolute;
+      left: 50%;
+      bottom: calc(100% + 8px);
+      transform: translateX(-50%);
+      background: rgba(17, 24, 39, 0.94);
+      color: #fff;
+      padding: 6px 10px;
+      border-radius: 8px;
+      font-size: 12px;
+      white-space: nowrap;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.18s ease;
+    }
+
+    .hotspot:hover::after {
+      opacity: 1;
+    }
+
+    .panel {
+      max-width: 1000px;
+      margin: 18px auto 0;
+      background: #ffffff;
+      border-radius: 12px;
+      padding: 16px 18px;
+      box-shadow: 0 4px 18px rgba(0, 0, 0, 0.06);
+      color: #52606d;
+      line-height: 1.6;
+    }
+
+    code {
+      background: #eef2f6;
+      padding: 2px 6px;
+      border-radius: 6px;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1 class="title">De Burgh Floorplate</h1>
+    <p class="desc">
+      This is a simple <code>index.html</code> template for GitHub Pages.
+      Put this file in the same folder as your exported PNG floor plate and rename the image file to <code>floorplate.png</code>.
+    </p>
+
+    <div class="floorplate">
+      <img src="./floorplate.png" alt="De Burgh floor plate" />
+
+      <!-- Example hotspots: replace labels, links, and positions -->
+      <a
+        class="hotspot"
+        href="https://example.com/apply-unit-244"
+        target="_blank"
+        rel="noopener noreferrer"
+        data-label="Unit 244 · Apply"
+        style="top: 18%; left: 61%; width: 5.5%; height: 6.5%;"
+      ></a>
+
+      <a
+        class="hotspot"
+        href="https://example.com/apply-unit-245"
+        target="_blank"
+        rel="noopener noreferrer"
+        data-label="Unit 245 · Apply"
+        style="top: 18%; left: 67%; width: 5.5%; height: 6.5%;"
+      ></a>
+
+      <a
+        class="hotspot"
+        href="https://example.com/apply-unit-246"
+        target="_blank"
+        rel="noopener noreferrer"
+        data-label="Unit 246 · Apply"
+        style="top: 18%; left: 73%; width: 5.5%; height: 6.5%;"
+      ></a>
+    </div>
+
+    <div class="panel">
+      <strong>How to use:</strong><br />
+      1. Save this file as <code>index.html</code>.<br />
+      2. Put your exported PNG in the same folder and name it <code>floorplate.png</code>.<br />
+      3. Upload both files to your GitHub repository.<br />
+      4. Turn on GitHub Pages in repository settings.<br /><br />
+
+      <strong>Folder structure:</strong><br />
+      <code>index.html</code><br />
+      <code>floorplate.png</code><br /><br />
+
+      <strong>How to edit hotspots:</strong><br />
+      Change <code>href</code> to the real Apply link.<br />
+      Change <code>data-label</code> to the real unit number or address.<br />
+      Adjust <code>top</code>, <code>left</code>, <code>width</code>, and <code>height</code> until the box matches the unit on the floor plate.
+    </div>
+  </div>
+</body>
+</html>

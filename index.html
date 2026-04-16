@@ -134,7 +134,7 @@
     .viewer {
       background: white;
       border-radius: 16px;
-      overflow: hidden;
+      overflow: visible;
       box-shadow: 0 12px 30px rgba(0,0,0,0.12);
     }
 
@@ -145,6 +145,8 @@
 
     .floor-wrapper.active {
       display: block;
+      position: relative;
+      z-index: 1;
     }
 
     .floor-image {
@@ -165,27 +167,15 @@
       z-index: 100;
     }
 
+    .hotspot:hover {
+      z-index: 9998;
+    }
+
     .hidden-by-filter {
       display: none;
     }
 
-    /* =========================
-       COLOR SETTINGS - EDIT HERE
-       ========================= */
-
-    .filled-unit {
-      background: #eab308;
-      border: 2px solid #ca8a04;
-      color: #1f2933;
-      font-weight: 700;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.12);
-    }
-
-    .filled-unit:hover {
-      background: #facc15;
-      box-shadow: 0 0 0 3px rgba(234, 179, 8, 0.25);
-      transform: scale(1.03);
-    }
+    /* COLOR SETTINGS */
 
     .orange-unit {
       background: #f97316;
@@ -239,11 +229,9 @@
 
     .pink-unit:hover {
       background: #f472b6;
-      box-shadow: 0 0 0 3px rgba(236, 72, 153, 0.2);
+      box-shadow: 0 0 0 3px rgba(236, 72, 153, 0.20);
       transform: scale(1.03);
     }
-
-    /* ========================= */
 
     .unit-label {
       font-size: 10px;
@@ -389,7 +377,7 @@
           <div class="floor-wrapper active" id="floor0005">
             <img class="floor-image" src="./0005.png" alt="Floor 0005" />
 
-            <div class="hotspot filled-unit" style="top: 45%; left: 64%; width: 4%; height: 9%;">
+            <div class="hotspot orange-unit" style="top: 45%; left: 64%; width: 4%; height: 9%;">
               <div class="unit-label">UNIT 52 APT 122</div>
               <div class="tooltip">
                 <div class="tooltip-title">Unit 52</div>
@@ -401,7 +389,7 @@
               </div>
             </div>
 
-            <div class="hotspot filled-unit" style="top: 45%; left: 72%; width: 3.8%; height: 9%;">
+            <div class="hotspot orange-unit" style="top: 45%; left: 72%; width: 3.8%; height: 9%;">
               <div class="unit-label">UNIT 54 APT 121</div>
               <div class="tooltip">
                 <div class="tooltip-title">Unit 54</div>
@@ -413,7 +401,7 @@
               </div>
             </div>
 
-            <div class="hotspot filled-unit" style="top: 34.5%; left: 75%; width: 10%; height: 4%;">
+            <div class="hotspot blue-unit" style="top: 34.5%; left: 75%; width: 10%; height: 4%;">
               <div class="unit-label">UNIT 38 APT 113</div>
               <div class="tooltip">
                 <div class="tooltip-title">Unit 38</div>
@@ -425,7 +413,7 @@
               </div>
             </div>
 
-            <div class="hotspot filled-unit" style="top: 24%; left: 72%; width: 3.5%; height: 9%;">
+            <div class="hotspot orange-unit" style="top: 24%; left: 72%; width: 3.5%; height: 9%;">
               <div class="unit-label">UNIT 26 APT 106</div>
               <div class="tooltip">
                 <div class="tooltip-title">Unit 26</div>
@@ -441,95 +429,41 @@
           <!-- 0006 -->
           <div class="floor-wrapper" id="floor0006">
             <img class="floor-image" src="./0006.png" alt="Floor 0006" />
-            <div class="hotspot orange-unit" style="top: 16%; left: 18%; width: 5%; height: 8%;"><div class="unit-label">UNIT O1</div><div class="tooltip"><div class="tooltip-title">Unit O1</div><div class="tooltip-subtitle">Address Placeholder</div><div class="tooltip-actions"><a class="tooltip-btn" href="https://example.com/apply" target="_blank" rel="noopener noreferrer">Apply</a><a class="tooltip-btn secondary" href="https://example.com/virtual-tour" target="_blank" rel="noopener noreferrer">Virtual Tour</a></div></div></div>
-            <div class="hotspot orange-unit" style="top: 16%; left: 42%; width: 5%; height: 8%;"><div class="unit-label">UNIT O2</div><div class="tooltip"><div class="tooltip-title">Unit O2</div><div class="tooltip-subtitle">Address Placeholder</div><div class="tooltip-actions"><a class="tooltip-btn" href="https://example.com/apply" target="_blank" rel="noopener noreferrer">Apply</a><a class="tooltip-btn secondary" href="https://example.com/virtual-tour" target="_blank" rel="noopener noreferrer">Virtual Tour</a></div></div></div>
-            <div class="hotspot orange-unit" style="top: 16%; left: 68%; width: 5%; height: 8%;"><div class="unit-label">UNIT O3</div><div class="tooltip"><div class="tooltip-title">Unit O3</div><div class="tooltip-subtitle">Address Placeholder</div><div class="tooltip-actions"><a class="tooltip-btn" href="https://example.com/apply" target="_blank" rel="noopener noreferrer">Apply</a><a class="tooltip-btn secondary" href="https://example.com/virtual-tour" target="_blank" rel="noopener noreferrer">Virtual Tour</a></div></div></div>
-            <div class="hotspot orange-unit" style="top: 34%; left: 24%; width: 5%; height: 8%;"><div class="unit-label">UNIT O4</div><div class="tooltip"><div class="tooltip-title">Unit O4</div><div class="tooltip-subtitle">Address Placeholder</div><div class="tooltip-actions"><a class="tooltip-btn" href="https://example.com/apply" target="_blank" rel="noopener noreferrer">Apply</a><a class="tooltip-btn secondary" href="https://example.com/virtual-tour" target="_blank" rel="noopener noreferrer">Virtual Tour</a></div></div></div>
-            <div class="hotspot orange-unit" style="top: 34%; left: 50%; width: 5%; height: 8%;"><div class="unit-label">UNIT O5</div><div class="tooltip"><div class="tooltip-title">Unit O5</div><div class="tooltip-subtitle">Address Placeholder</div><div class="tooltip-actions"><a class="tooltip-btn" href="https://example.com/apply" target="_blank" rel="noopener noreferrer">Apply</a><a class="tooltip-btn secondary" href="https://example.com/virtual-tour" target="_blank" rel="noopener noreferrer">Virtual Tour</a></div></div></div>
-            <div class="hotspot orange-unit" style="top: 34%; left: 76%; width: 5%; height: 8%;"><div class="unit-label">UNIT O6</div><div class="tooltip"><div class="tooltip-title">Unit O6</div><div class="tooltip-subtitle">Address Placeholder</div><div class="tooltip-actions"><a class="tooltip-btn" href="https://example.com/apply" target="_blank" rel="noopener noreferrer">Apply</a><a class="tooltip-btn secondary" href="https://example.com/virtual-tour" target="_blank" rel="noopener noreferrer">Virtual Tour</a></div></div></div>
-            <div class="hotspot orange-unit" style="top: 58%; left: 20%; width: 5%; height: 8%;"><div class="unit-label">UNIT O7</div><div class="tooltip"><div class="tooltip-title">Unit O7</div><div class="tooltip-subtitle">Address Placeholder</div><div class="tooltip-actions"><a class="tooltip-btn" href="https://example.com/apply" target="_blank" rel="noopener noreferrer">Apply</a><a class="tooltip-btn secondary" href="https://example.com/virtual-tour" target="_blank" rel="noopener noreferrer">Virtual Tour</a></div></div></div>
-            <div class="hotspot orange-unit" style="top: 58%; left: 48%; width: 5%; height: 8%;"><div class="unit-label">UNIT O8</div><div class="tooltip"><div class="tooltip-title">Unit O8</div><div class="tooltip-subtitle">Address Placeholder</div><div class="tooltip-actions"><a class="tooltip-btn" href="https://example.com/apply" target="_blank" rel="noopener noreferrer">Apply</a><a class="tooltip-btn secondary" href="https://example.com/virtual-tour" target="_blank" rel="noopener noreferrer">Virtual Tour</a></div></div></div>
-            <div class="hotspot orange-unit" style="top: 58%; left: 72%; width: 5%; height: 8%;"><div class="unit-label">UNIT O9</div><div class="tooltip"><div class="tooltip-title">Unit O9</div><div class="tooltip-subtitle">Address Placeholder</div><div class="tooltip-actions"><a class="tooltip-btn" href="https://example.com/apply" target="_blank" rel="noopener noreferrer">Apply</a><a class="tooltip-btn secondary" href="https://example.com/virtual-tour" target="_blank" rel="noopener noreferrer">Virtual Tour</a></div></div></div>
           </div>
 
           <!-- 0007 -->
           <div class="floor-wrapper" id="floor0007">
             <img class="floor-image" src="./0007.png" alt="Floor 0007" />
-            <div class="hotspot orange-unit" style="top: 22%; left: 22%; width: 5%; height: 8%;"><div class="unit-label">UNIT O1</div><div class="tooltip"><div class="tooltip-title">Unit O1</div><div class="tooltip-subtitle">Address Placeholder</div><div class="tooltip-actions"><a class="tooltip-btn" href="https://example.com/apply" target="_blank" rel="noopener noreferrer">Apply</a><a class="tooltip-btn secondary" href="https://example.com/virtual-tour" target="_blank" rel="noopener noreferrer">Virtual Tour</a></div></div></div>
-            <div class="hotspot orange-unit" style="top: 38%; left: 48%; width: 5%; height: 8%;"><div class="unit-label">UNIT O2</div><div class="tooltip"><div class="tooltip-title">Unit O2</div><div class="tooltip-subtitle">Address Placeholder</div><div class="tooltip-actions"><a class="tooltip-btn" href="https://example.com/apply" target="_blank" rel="noopener noreferrer">Apply</a><a class="tooltip-btn secondary" href="https://example.com/virtual-tour" target="_blank" rel="noopener noreferrer">Virtual Tour</a></div></div></div>
-            <div class="hotspot orange-unit" style="top: 60%; left: 70%; width: 5%; height: 8%;"><div class="unit-label">UNIT O3</div><div class="tooltip"><div class="tooltip-title">Unit O3</div><div class="tooltip-subtitle">Address Placeholder</div><div class="tooltip-actions"><a class="tooltip-btn" href="https://example.com/apply" target="_blank" rel="noopener noreferrer">Apply</a><a class="tooltip-btn secondary" href="https://example.com/virtual-tour" target="_blank" rel="noopener noreferrer">Virtual Tour</a></div></div></div>
           </div>
 
           <!-- 0008 -->
           <div class="floor-wrapper" id="floor0008">
             <img class="floor-image" src="./0008.png" alt="Floor 0008" />
-            <div class="hotspot orange-unit" style="top: 12%; left: 16%; width: 5%; height: 8%;"><div class="unit-label">UNIT O1</div><div class="tooltip"><div class="tooltip-title">Unit O1</div><div class="tooltip-subtitle">Address Placeholder</div><div class="tooltip-actions"><a class="tooltip-btn" href="https://example.com/apply" target="_blank" rel="noopener noreferrer">Apply</a><a class="tooltip-btn secondary" href="https://example.com/virtual-tour" target="_blank" rel="noopener noreferrer">Virtual Tour</a></div></div></div>
-            <div class="hotspot orange-unit" style="top: 12%; left: 34%; width: 5%; height: 8%;"><div class="unit-label">UNIT O2</div><div class="tooltip"><div class="tooltip-title">Unit O2</div><div class="tooltip-subtitle">Address Placeholder</div><div class="tooltip-actions"><a class="tooltip-btn" href="https://example.com/apply" target="_blank" rel="noopener noreferrer">Apply</a><a class="tooltip-btn secondary" href="https://example.com/virtual-tour" target="_blank" rel="noopener noreferrer">Virtual Tour</a></div></div></div>
-            <div class="hotspot orange-unit" style="top: 12%; left: 52%; width: 5%; height: 8%;"><div class="unit-label">UNIT O3</div><div class="tooltip"><div class="tooltip-title">Unit O3</div><div class="tooltip-subtitle">Address Placeholder</div><div class="tooltip-actions"><a class="tooltip-btn" href="https://example.com/apply" target="_blank" rel="noopener noreferrer">Apply</a><a class="tooltip-btn secondary" href="https://example.com/virtual-tour" target="_blank" rel="noopener noreferrer">Virtual Tour</a></div></div></div>
-            <div class="hotspot orange-unit" style="top: 12%; left: 70%; width: 5%; height: 8%;"><div class="unit-label">UNIT O4</div><div class="tooltip"><div class="tooltip-title">Unit O4</div><div class="tooltip-subtitle">Address Placeholder</div><div class="tooltip-actions"><a class="tooltip-btn" href="https://example.com/apply" target="_blank" rel="noopener noreferrer">Apply</a><a class="tooltip-btn secondary" href="https://example.com/virtual-tour" target="_blank" rel="noopener noreferrer">Virtual Tour</a></div></div></div>
-            <div class="hotspot orange-unit" style="top: 30%; left: 20%; width: 5%; height: 8%;"><div class="unit-label">UNIT O5</div><div class="tooltip"><div class="tooltip-title">Unit O5</div><div class="tooltip-subtitle">Address Placeholder</div><div class="tooltip-actions"><a class="tooltip-btn" href="https://example.com/apply" target="_blank" rel="noopener noreferrer">Apply</a><a class="tooltip-btn secondary" href="https://example.com/virtual-tour" target="_blank" rel="noopener noreferrer">Virtual Tour</a></div></div></div>
-            <div class="hotspot orange-unit" style="top: 30%; left: 42%; width: 5%; height: 8%;"><div class="unit-label">UNIT O6</div><div class="tooltip"><div class="tooltip-title">Unit O6</div><div class="tooltip-subtitle">Address Placeholder</div><div class="tooltip-actions"><a class="tooltip-btn" href="https://example.com/apply" target="_blank" rel="noopener noreferrer">Apply</a><a class="tooltip-btn secondary" href="https://example.com/virtual-tour" target="_blank" rel="noopener noreferrer">Virtual Tour</a></div></div></div>
-            <div class="hotspot orange-unit" style="top: 30%; left: 64%; width: 5%; height: 8%;"><div class="unit-label">UNIT O7</div><div class="tooltip"><div class="tooltip-title">Unit O7</div><div class="tooltip-subtitle">Address Placeholder</div><div class="tooltip-actions"><a class="tooltip-btn" href="https://example.com/apply" target="_blank" rel="noopener noreferrer">Apply</a><a class="tooltip-btn secondary" href="https://example.com/virtual-tour" target="_blank" rel="noopener noreferrer">Virtual Tour</a></div></div></div>
-            <div class="hotspot orange-unit" style="top: 48%; left: 18%; width: 5%; height: 8%;"><div class="unit-label">UNIT O8</div><div class="tooltip"><div class="tooltip-title">Unit O8</div><div class="tooltip-subtitle">Address Placeholder</div><div class="tooltip-actions"><a class="tooltip-btn" href="https://example.com/apply" target="_blank" rel="noopener noreferrer">Apply</a><a class="tooltip-btn secondary" href="https://example.com/virtual-tour" target="_blank" rel="noopener noreferrer">Virtual Tour</a></div></div></div>
-            <div class="hotspot orange-unit" style="top: 48%; left: 36%; width: 5%; height: 8%;"><div class="unit-label">UNIT O9</div><div class="tooltip"><div class="tooltip-title">Unit O9</div><div class="tooltip-subtitle">Address Placeholder</div><div class="tooltip-actions"><a class="tooltip-btn" href="https://example.com/apply" target="_blank" rel="noopener noreferrer">Apply</a><a class="tooltip-btn secondary" href="https://example.com/virtual-tour" target="_blank" rel="noopener noreferrer">Virtual Tour</a></div></div></div>
-            <div class="hotspot orange-unit" style="top: 48%; left: 54%; width: 5%; height: 8%;"><div class="unit-label">UNIT O10</div><div class="tooltip"><div class="tooltip-title">Unit O10</div><div class="tooltip-subtitle">Address Placeholder</div><div class="tooltip-actions"><a class="tooltip-btn" href="https://example.com/apply" target="_blank" rel="noopener noreferrer">Apply</a><a class="tooltip-btn secondary" href="https://example.com/virtual-tour" target="_blank" rel="noopener noreferrer">Virtual Tour</a></div></div></div>
-            <div class="hotspot orange-unit" style="top: 48%; left: 72%; width: 5%; height: 8%;"><div class="unit-label">UNIT O11</div><div class="tooltip"><div class="tooltip-title">Unit O11</div><div class="tooltip-subtitle">Address Placeholder</div><div class="tooltip-actions"><a class="tooltip-btn" href="https://example.com/apply" target="_blank" rel="noopener noreferrer">Apply</a><a class="tooltip-btn secondary" href="https://example.com/virtual-tour" target="_blank" rel="noopener noreferrer">Virtual Tour</a></div></div></div>
-            <div class="hotspot orange-unit" style="top: 66%; left: 28%; width: 5%; height: 8%;"><div class="unit-label">UNIT O12</div><div class="tooltip"><div class="tooltip-title">Unit O12</div><div class="tooltip-subtitle">Address Placeholder</div><div class="tooltip-actions"><a class="tooltip-btn" href="https://example.com/apply" target="_blank" rel="noopener noreferrer">Apply</a><a class="tooltip-btn secondary" href="https://example.com/virtual-tour" target="_blank" rel="noopener noreferrer">Virtual Tour</a></div></div></div>
-            <div class="hotspot orange-unit" style="top: 66%; left: 60%; width: 5%; height: 8%;"><div class="unit-label">UNIT O13</div><div class="tooltip"><div class="tooltip-title">Unit O13</div><div class="tooltip-subtitle">Address Placeholder</div><div class="tooltip-actions"><a class="tooltip-btn" href="https://example.com/apply" target="_blank" rel="noopener noreferrer">Apply</a><a class="tooltip-btn secondary" href="https://example.com/virtual-tour" target="_blank" rel="noopener noreferrer">Virtual Tour</a></div></div></div>
           </div>
 
           <!-- 0009 -->
           <div class="floor-wrapper" id="floor0009">
             <img class="floor-image" src="./0009.png" alt="Floor 0009" />
-            <div class="hotspot orange-unit" style="top: 18%; left: 18%; width: 5%; height: 8%;"><div class="unit-label">UNIT O1</div><div class="tooltip"><div class="tooltip-title">Unit O1</div><div class="tooltip-subtitle">Address Placeholder</div><div class="tooltip-actions"><a class="tooltip-btn" href="https://example.com/apply" target="_blank" rel="noopener noreferrer">Apply</a><a class="tooltip-btn secondary" href="https://example.com/virtual-tour" target="_blank" rel="noopener noreferrer">Virtual Tour</a></div></div></div>
-            <div class="hotspot orange-unit" style="top: 18%; left: 44%; width: 5%; height: 8%;"><div class="unit-label">UNIT O2</div><div class="tooltip"><div class="tooltip-title">Unit O2</div><div class="tooltip-subtitle">Address Placeholder</div><div class="tooltip-actions"><a class="tooltip-btn" href="https://example.com/apply" target="_blank" rel="noopener noreferrer">Apply</a><a class="tooltip-btn secondary" href="https://example.com/virtual-tour" target="_blank" rel="noopener noreferrer">Virtual Tour</a></div></div></div>
-            <div class="hotspot orange-unit" style="top: 18%; left: 70%; width: 5%; height: 8%;"><div class="unit-label">UNIT O3</div><div class="tooltip"><div class="tooltip-title">Unit O3</div><div class="tooltip-subtitle">Address Placeholder</div><div class="tooltip-actions"><a class="tooltip-btn" href="https://example.com/apply" target="_blank" rel="noopener noreferrer">Apply</a><a class="tooltip-btn secondary" href="https://example.com/virtual-tour" target="_blank" rel="noopener noreferrer">Virtual Tour</a></div></div></div>
-            <div class="hotspot orange-unit" style="top: 38%; left: 22%; width: 5%; height: 8%;"><div class="unit-label">UNIT O4</div><div class="tooltip"><div class="tooltip-title">Unit O4</div><div class="tooltip-subtitle">Address Placeholder</div><div class="tooltip-actions"><a class="tooltip-btn" href="https://example.com/apply" target="_blank" rel="noopener noreferrer">Apply</a><a class="tooltip-btn secondary" href="https://example.com/virtual-tour" target="_blank" rel="noopener noreferrer">Virtual Tour</a></div></div></div>
-            <div class="hotspot orange-unit" style="top: 38%; left: 48%; width: 5%; height: 8%;"><div class="unit-label">UNIT O5</div><div class="tooltip"><div class="tooltip-title">Unit O5</div><div class="tooltip-subtitle">Address Placeholder</div><div class="tooltip-actions"><a class="tooltip-btn" href="https://example.com/apply" target="_blank" rel="noopener noreferrer">Apply</a><a class="tooltip-btn secondary" href="https://example.com/virtual-tour" target="_blank" rel="noopener noreferrer">Virtual Tour</a></div></div></div>
-            <div class="hotspot orange-unit" style="top: 38%; left: 74%; width: 5%; height: 8%;"><div class="unit-label">UNIT O6</div><div class="tooltip"><div class="tooltip-title">Unit O6</div><div class="tooltip-subtitle">Address Placeholder</div><div class="tooltip-actions"><a class="tooltip-btn" href="https://example.com/apply" target="_blank" rel="noopener noreferrer">Apply</a><a class="tooltip-btn secondary" href="https://example.com/virtual-tour" target="_blank" rel="noopener noreferrer">Virtual Tour</a></div></div></div>
-            <div class="hotspot orange-unit" style="top: 60%; left: 20%; width: 5%; height: 8%;"><div class="unit-label">UNIT O7</div><div class="tooltip"><div class="tooltip-title">Unit O7</div><div class="tooltip-subtitle">Address Placeholder</div><div class="tooltip-actions"><a class="tooltip-btn" href="https://example.com/apply" target="_blank" rel="noopener noreferrer">Apply</a><a class="tooltip-btn secondary" href="https://example.com/virtual-tour" target="_blank" rel="noopener noreferrer">Virtual Tour</a></div></div></div>
-            <div class="hotspot orange-unit" style="top: 60%; left: 48%; width: 5%; height: 8%;"><div class="unit-label">UNIT O8</div><div class="tooltip"><div class="tooltip-title">Unit O8</div><div class="tooltip-subtitle">Address Placeholder</div><div class="tooltip-actions"><a class="tooltip-btn" href="https://example.com/apply" target="_blank" rel="noopener noreferrer">Apply</a><a class="tooltip-btn secondary" href="https://example.com/virtual-tour" target="_blank" rel="noopener noreferrer">Virtual Tour</a></div></div></div>
-            <div class="hotspot orange-unit" style="top: 60%; left: 72%; width: 5%; height: 8%;"><div class="unit-label">UNIT O9</div><div class="tooltip"><div class="tooltip-title">Unit O9</div><div class="tooltip-subtitle">Address Placeholder</div><div class="tooltip-actions"><a class="tooltip-btn" href="https://example.com/apply" target="_blank" rel="noopener noreferrer">Apply</a><a class="tooltip-btn secondary" href="https://example.com/virtual-tour" target="_blank" rel="noopener noreferrer">Virtual Tour</a></div></div></div>
           </div>
 
           <!-- 0010 -->
           <div class="floor-wrapper" id="floor0010">
             <img class="floor-image" src="./0010.png" alt="Floor 0010" />
-            <div class="hotspot orange-unit" style="top: 16%; left: 20%; width: 5%; height: 8%;"><div class="unit-label">UNIT O1</div><div class="tooltip"><div class="tooltip-title">Unit O1</div><div class="tooltip-subtitle">Address Placeholder</div><div class="tooltip-actions"><a class="tooltip-btn" href="https://example.com/apply" target="_blank" rel="noopener noreferrer">Apply</a><a class="tooltip-btn secondary" href="https://example.com/virtual-tour" target="_blank" rel="noopener noreferrer">Virtual Tour</a></div></div></div>
-            <div class="hotspot orange-unit" style="top: 16%; left: 42%; width: 5%; height: 8%;"><div class="unit-label">UNIT O2</div><div class="tooltip"><div class="tooltip-title">Unit O2</div><div class="tooltip-subtitle">Address Placeholder</div><div class="tooltip-actions"><a class="tooltip-btn" href="https://example.com/apply" target="_blank" rel="noopener noreferrer">Apply</a><a class="tooltip-btn secondary" href="https://example.com/virtual-tour" target="_blank" rel="noopener noreferrer">Virtual Tour</a></div></div></div>
-            <div class="hotspot orange-unit" style="top: 16%; left: 66%; width: 5%; height: 8%;"><div class="unit-label">UNIT O3</div><div class="tooltip"><div class="tooltip-title">Unit O3</div><div class="tooltip-subtitle">Address Placeholder</div><div class="tooltip-actions"><a class="tooltip-btn" href="https://example.com/apply" target="_blank" rel="noopener noreferrer">Apply</a><a class="tooltip-btn secondary" href="https://example.com/virtual-tour" target="_blank" rel="noopener noreferrer">Virtual Tour</a></div></div></div>
-            <div class="hotspot orange-unit" style="top: 36%; left: 24%; width: 5%; height: 8%;"><div class="unit-label">UNIT O4</div><div class="tooltip"><div class="tooltip-title">Unit O4</div><div class="tooltip-subtitle">Address Placeholder</div><div class="tooltip-actions"><a class="tooltip-btn" href="https://example.com/apply" target="_blank" rel="noopener noreferrer">Apply</a><a class="tooltip-btn secondary" href="https://example.com/virtual-tour" target="_blank" rel="noopener noreferrer">Virtual Tour</a></div></div></div>
-            <div class="hotspot orange-unit" style="top: 36%; left: 50%; width: 5%; height: 8%;"><div class="unit-label">UNIT O5</div><div class="tooltip"><div class="tooltip-title">Unit O5</div><div class="tooltip-subtitle">Address Placeholder</div><div class="tooltip-actions"><a class="tooltip-btn" href="https://example.com/apply" target="_blank" rel="noopener noreferrer">Apply</a><a class="tooltip-btn secondary" href="https://example.com/virtual-tour" target="_blank" rel="noopener noreferrer">Virtual Tour</a></div></div></div>
-            <div class="hotspot orange-unit" style="top: 36%; left: 74%; width: 5%; height: 8%;"><div class="unit-label">UNIT O6</div><div class="tooltip"><div class="tooltip-title">Unit O6</div><div class="tooltip-subtitle">Address Placeholder</div><div class="tooltip-actions"><a class="tooltip-btn" href="https://example.com/apply" target="_blank" rel="noopener noreferrer">Apply</a><a class="tooltip-btn secondary" href="https://example.com/virtual-tour" target="_blank" rel="noopener noreferrer">Virtual Tour</a></div></div></div>
-            <div class="hotspot orange-unit" style="top: 58%; left: 30%; width: 5%; height: 8%;"><div class="unit-label">UNIT O7</div><div class="tooltip"><div class="tooltip-title">Unit O7</div><div class="tooltip-subtitle">Address Placeholder</div><div class="tooltip-actions"><a class="tooltip-btn" href="https://example.com/apply" target="_blank" rel="noopener noreferrer">Apply</a><a class="tooltip-btn secondary" href="https://example.com/virtual-tour" target="_blank" rel="noopener noreferrer">Virtual Tour</a></div></div></div>
-            <div class="hotspot orange-unit" style="top: 58%; left: 60%; width: 5%; height: 8%;"><div class="unit-label">UNIT O8</div><div class="tooltip"><div class="tooltip-title">Unit O8</div><div class="tooltip-subtitle">Address Placeholder</div><div class="tooltip-actions"><a class="tooltip-btn" href="https://example.com/apply" target="_blank" rel="noopener noreferrer">Apply</a><a class="tooltip-btn secondary" href="https://example.com/virtual-tour" target="_blank" rel="noopener noreferrer">Virtual Tour</a></div></div></div>
           </div>
 
           <!-- 0011 -->
           <div class="floor-wrapper" id="floor0011">
             <img class="floor-image" src="./0011.png" alt="Floor 0011" />
-            <div class="hotspot orange-unit" style="top: 18%; left: 18%; width: 5%; height: 8%;"><div class="unit-label">UNIT O1</div><div class="tooltip"><div class="tooltip-title">Unit O1</div><div class="tooltip-subtitle">Address Placeholder</div><div class="tooltip-actions"><a class="tooltip-btn" href="https://example.com/apply" target="_blank" rel="noopener noreferrer">Apply</a><a class="tooltip-btn secondary" href="https://example.com/virtual-tour" target="_blank" rel="noopener noreferrer">Virtual Tour</a></div></div></div>
-            <div class="hotspot orange-unit" style="top: 18%; left: 44%; width: 5%; height: 8%;"><div class="unit-label">UNIT O2</div><div class="tooltip"><div class="tooltip-title">Unit O2</div><div class="tooltip-subtitle">Address Placeholder</div><div class="tooltip-actions"><a class="tooltip-btn" href="https://example.com/apply" target="_blank" rel="noopener noreferrer">Apply</a><a class="tooltip-btn secondary" href="https://example.com/virtual-tour" target="_blank" rel="noopener noreferrer">Virtual Tour</a></div></div></div>
-            <div class="hotspot orange-unit" style="top: 18%; left: 70%; width: 5%; height: 8%;"><div class="unit-label">UNIT O3</div><div class="tooltip"><div class="tooltip-title">Unit O3</div><div class="tooltip-subtitle">Address Placeholder</div><div class="tooltip-actions"><a class="tooltip-btn" href="https://example.com/apply" target="_blank" rel="noopener noreferrer">Apply</a><a class="tooltip-btn secondary" href="https://example.com/virtual-tour" target="_blank" rel="noopener noreferrer">Virtual Tour</a></div></div></div>
-            <div class="hotspot orange-unit" style="top: 36%; left: 22%; width: 5%; height: 8%;"><div class="unit-label">UNIT O4</div><div class="tooltip"><div class="tooltip-title">Unit O4</div><div class="tooltip-subtitle">Address Placeholder</div><div class="tooltip-actions"><a class="tooltip-btn" href="https://example.com/apply" target="_blank" rel="noopener noreferrer">Apply</a><a class="tooltip-btn secondary" href="https://example.com/virtual-tour" target="_blank" rel="noopener noreferrer">Virtual Tour</a></div></div></div>
-            <div class="hotspot orange-unit" style="top: 36%; left: 48%; width: 5%; height: 8%;"><div class="unit-label">UNIT O5</div><div class="tooltip"><div class="tooltip-title">Unit O5</div><div class="tooltip-subtitle">Address Placeholder</div><div class="tooltip-actions"><a class="tooltip-btn" href="https://example.com/apply" target="_blank" rel="noopener noreferrer">Apply</a><a class="tooltip-btn secondary" href="https://example.com/virtual-tour" target="_blank" rel="noopener noreferrer">Virtual Tour</a></div></div></div>
-            <div class="hotspot orange-unit" style="top: 36%; left: 74%; width: 5%; height: 8%;"><div class="unit-label">UNIT O6</div><div class="tooltip"><div class="tooltip-title">Unit O6</div><div class="tooltip-subtitle">Address Placeholder</div><div class="tooltip-actions"><a class="tooltip-btn" href="https://example.com/apply" target="_blank" rel="noopener noreferrer">Apply</a><a class="tooltip-btn secondary" href="https://example.com/virtual-tour" target="_blank" rel="noopener noreferrer">Virtual Tour</a></div></div></div>
-            <div class="hotspot orange-unit" style="top: 58%; left: 20%; width: 5%; height: 8%;"><div class="unit-label">UNIT O7</div><div class="tooltip"><div class="tooltip-title">Unit O7</div><div class="tooltip-subtitle">Address Placeholder</div><div class="tooltip-actions"><a class="tooltip-btn" href="https://example.com/apply" target="_blank" rel="noopener noreferrer">Apply</a><a class="tooltip-btn secondary" href="https://example.com/virtual-tour" target="_blank" rel="noopener noreferrer">Virtual Tour</a></div></div></div>
-            <div class="hotspot orange-unit" style="top: 58%; left: 48%; width: 5%; height: 8%;"><div class="unit-label">UNIT O8</div><div class="tooltip"><div class="tooltip-title">Unit O8</div><div class="tooltip-subtitle">Address Placeholder</div><div class="tooltip-actions"><a class="tooltip-btn" href="https://example.com/apply" target="_blank" rel="noopener noreferrer">Apply</a><a class="tooltip-btn secondary" href="https://example.com/virtual-tour" target="_blank" rel="noopener noreferrer">Virtual Tour</a></div></div></div>
-            <div class="hotspot orange-unit" style="top: 58%; left: 72%; width: 5%; height: 8%;"><div class="unit-label">UNIT O9</div><div class="tooltip"><div class="tooltip-title">Unit O9</div><div class="tooltip-subtitle">Address Placeholder</div><div class="tooltip-actions"><a class="tooltip-btn" href="https://example.com/apply" target="_blank" rel="noopener noreferrer">Apply</a><a class="tooltip-btn secondary" href="https://example.com/virtual-tour" target="_blank" rel="noopener noreferrer">Virtual Tour</a></div></div></div>
           </div>
 
           <!-- 0012 -->
           <div class="floor-wrapper" id="floor0012">
             <img class="floor-image" src="./0012.png" alt="Floor 0012" />
-            <div class="hotspot orange-unit" style="top: 24%; left: 24%; width: 5%; height: 8%;"><div class="unit-label">UNIT O1</div><div class="tooltip"><div class="tooltip-title">Unit O1</div><div class="tooltip-subtitle">Address Placeholder</div><div class="tooltip-actions"><a class="tooltip-btn" href="https://example.com/apply" target="_blank" rel="noopener noreferrer">Apply</a><a class="tooltip-btn secondary" href="https://example.com/virtual-tour" target="_blank" rel="noopener noreferrer">Virtual Tour</a></div></div></div>
-            <div class="hotspot orange-unit" style="top: 42%; left: 48%; width: 5%; height: 8%;"><div class="unit-label">UNIT O2</div><div class="tooltip"><div class="tooltip-title">Unit O2</div><div class="tooltip-subtitle">Address Placeholder</div><div class="tooltip-actions"><a class="tooltip-btn" href="https://example.com/apply" target="_blank" rel="noopener noreferrer">Apply</a><a class="tooltip-btn secondary" href="https://example.com/virtual-tour" target="_blank" rel="noopener noreferrer">Virtual Tour</a></div></div></div>
-            <div class="hotspot orange-unit" style="top: 62%; left: 70%; width: 5%; height: 8%;"><div class="unit-label">UNIT O3</div><div class="tooltip"><div class="tooltip-title">Unit O3</div><div class="tooltip-subtitle">Address Placeholder</div><div class="tooltip-actions"><a class="tooltip-btn" href="https://example.com/apply" target="_blank" rel="noopener noreferrer">Apply</a><a class="tooltip-btn secondary" href="https://example.com/virtual-tour" target="_blank" rel="noopener noreferrer">Virtual Tour</a></div></div></div>
           </div>
         </div>
 
         <div class="panel">
-          Color classes are ready. Change <code>orange-unit</code> / <code>filled-unit</code> / <code>blue-unit</code> / <code>green-unit</code> / <code>pink-unit</code> as needed. You can also edit the color hex values at the top of the CSS.
+          Price filter is enabled. In floor 0005, blue shows 510-530 and orange shows $490-$500.
         </div>
       </div>
 
@@ -539,7 +473,7 @@
         <div class="filter-list">
           <button class="filter-btn pink" data-filter="pink-unit">$470-$480 (Studio)</button>
           <button class="filter-btn orange" data-filter="orange-unit">$490-$500</button>
-          <button class="filter-btn blue" data-filter="blue-unit">$530</button>
+          <button class="filter-btn blue" data-filter="blue-unit">510-530</button>
           <button class="filter-btn green" data-filter="green-unit">$550</button>
         </div>
       </aside>
@@ -599,5 +533,4 @@
   </script>
 </body>
 </html>
-
 

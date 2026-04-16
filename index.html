@@ -78,19 +78,35 @@
 
     .hotspot {
       position: absolute;
-      display: block;
-      border: 2px solid #2563eb;
-      background: rgba(37, 99, 235, 0.18);
+      display: flex;
+      align-items: center;
+      justify-content: center;
       border-radius: 6px;
       text-decoration: none;
       transition: all 0.2s ease;
+      cursor: pointer;
+      z-index: 2;
     }
 
-    .hotspot:hover {
-      background: rgba(37, 99, 235, 0.32);
-      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.18);
-      transform: scale(1.02);
-      z-index: 2;
+    .filled-unit {
+      background: #eab308;
+      border: 2px solid #ca8a04;
+      color: #1f2933;
+      font-weight: 700;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.12);
+    }
+
+    .filled-unit:hover {
+      background: #facc15;
+      box-shadow: 0 0 0 3px rgba(234, 179, 8, 0.25);
+      transform: scale(1.03);
+    }
+
+    .unit-label {
+      font-size: 14px;
+      line-height: 1;
+      font-weight: 700;
+      user-select: none;
     }
 
     .tooltip {
@@ -171,7 +187,7 @@
 <body>
   <div class="wrap">
     <h1>De Burgh Floorplans</h1>
-    <p>Click a floor button below to switch between floor plan images. I have added 3 sample linked units on floor 0005 first.</p>
+    <p>Click a floor button below to switch between floor plan images.</p>
 
     <div class="tabs">
       <button class="tab-btn active" onclick="showFloor('floor0005', this)">0005</button>
@@ -189,9 +205,11 @@
         <img class="floor-image" src="./0005.png" alt="Floor 0005" />
 
         <div
-          class="hotspot"
-          style="top: 68.2%; left: 74.2%; width: 5.2%; height: 6.4%;"
+          class="hotspot filled-unit"
+          style="top: 45%; left: 64%; width: 4%; height: 9%;"
         >
+          <div class="unit-label">52</div>
+
           <div class="tooltip">
             <div class="tooltip-title">Unit 52</div>
             <div class="tooltip-subtitle">122/325 Northbourne Ave</div>
@@ -243,9 +261,7 @@
     </div>
 
     <div class="panel">
-      <strong>Next step:</strong><br />
-      Replace the 3 sample <code>href</code> links with the real Apply links for units 244, 245, and 246.<br />
-      If the blue boxes are slightly off, adjust the <code>top</code>, <code>left</code>, <code>width</code>, and <code>height</code> values a little until they match the units exactly.
+      Unit 52 has been added on floor 0005 with Apply and Virtual Tour links.
     </div>
   </div>
 

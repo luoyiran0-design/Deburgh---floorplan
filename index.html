@@ -61,49 +61,198 @@
       box-shadow: 0 12px 30px rgba(0,0,0,0.12);
     }
 
-    .floor-image {
+    .floor-wrapper {
+      position: relative;
       display: none;
+    }
+
+    .floor-wrapper.active {
+      display: block;
+    }
+
+    .floor-image {
+      display: block;
       width: 100%;
       height: auto;
     }
 
-    .floor-image.active {
+    .hotspot {
+      position: absolute;
       display: block;
+      border: 2px solid #2563eb;
+      background: rgba(37, 99, 235, 0.18);
+      border-radius: 6px;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+
+    .hotspot:hover {
+      background: rgba(37, 99, 235, 0.32);
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.18);
+      transform: scale(1.02);
+      z-index: 2;
+    }
+
+    .tooltip {
+      position: absolute;
+      left: 50%;
+      bottom: calc(100% + 8px);
+      transform: translateX(-50%);
+      background: rgba(17, 24, 39, 0.96);
+      color: #fff;
+      padding: 10px 12px;
+      border-radius: 10px;
+      min-width: 220px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.18s ease;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.18);
+      z-index: 3;
+    }
+
+    .hotspot:hover .tooltip {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .tooltip-title {
+      font-size: 12px;
+      font-weight: 700;
+      line-height: 1.4;
+      margin-bottom: 8px;
+    }
+
+    .tooltip-subtitle {
+      font-size: 12px;
+      line-height: 1.4;
+      color: #dbeafe;
+      margin-bottom: 10px;
+    }
+
+    .tooltip-actions {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .tooltip-btn {
+      display: inline-block;
+      padding: 6px 10px;
+      border-radius: 8px;
+      font-size: 12px;
+      font-weight: 600;
+      text-decoration: none;
+      background: #ffffff;
+      color: #1f2933;
+    }
+
+    .tooltip-btn.secondary {
+      background: #dbeafe;
+      color: #1e3a8a;
+    }
+
+    .panel {
+      margin-top: 18px;
+      background: #ffffff;
+      border-radius: 12px;
+      padding: 16px 18px;
+      box-shadow: 0 4px 18px rgba(0,0,0,0.06);
+      color: #52606d;
+      line-height: 1.6;
+    }
+
+    code {
+      background: #eef2f6;
+      padding: 2px 6px;
+      border-radius: 6px;
     }
   </style>
 </head>
 <body>
   <div class="wrap">
     <h1>De Burgh Floorplans</h1>
-    <p>Click a floor button below to switch between floor plan images.</p>
+    <p>Click a floor button below to switch between floor plan images. I have added 3 sample linked units on floor 0005 first.</p>
 
     <div class="tabs">
-      <button class="tab-btn active" onclick="showFloor('img0005', this)">0005</button>
-      <button class="tab-btn" onclick="showFloor('img0006', this)">0006</button>
-      <button class="tab-btn" onclick="showFloor('img0007', this)">0007</button>
-      <button class="tab-btn" onclick="showFloor('img0008', this)">0008</button>
-      <button class="tab-btn" onclick="showFloor('img0009', this)">0009</button>
-      <button class="tab-btn" onclick="showFloor('img0010', this)">0010</button>
-      <button class="tab-btn" onclick="showFloor('img0011', this)">0011</button>
-      <button class="tab-btn" onclick="showFloor('img0012', this)">0012</button>
+      <button class="tab-btn active" onclick="showFloor('floor0005', this)">0005</button>
+      <button class="tab-btn" onclick="showFloor('floor0006', this)">0006</button>
+      <button class="tab-btn" onclick="showFloor('floor0007', this)">0007</button>
+      <button class="tab-btn" onclick="showFloor('floor0008', this)">0008</button>
+      <button class="tab-btn" onclick="showFloor('floor0009', this)">0009</button>
+      <button class="tab-btn" onclick="showFloor('floor0010', this)">0010</button>
+      <button class="tab-btn" onclick="showFloor('floor0011', this)">0011</button>
+      <button class="tab-btn" onclick="showFloor('floor0012', this)">0012</button>
     </div>
 
     <div class="viewer">
-      <img id="img0005" class="floor-image active" src="./0005.png" alt="Floor 0005" />
-      <img id="img0006" class="floor-image" src="./0006.png" alt="Floor 0006" />
-      <img id="img0007" class="floor-image" src="./0007.png" alt="Floor 0007" />
-      <img id="img0008" class="floor-image" src="./0008.png" alt="Floor 0008" />
-      <img id="img0009" class="floor-image" src="./0009.png" alt="Floor 0009" />
-      <img id="img0010" class="floor-image" src="./0010.png" alt="Floor 0010" />
-      <img id="img0011" class="floor-image" src="./0011.png" alt="Floor 0011" />
-      <img id="img0012" class="floor-image" src="./0012.png" alt="Floor 0012" />
+      <div class="floor-wrapper active" id="floor0005">
+        <img class="floor-image" src="./0005.png" alt="Floor 0005" />
+
+        <div
+          class="hotspot"
+          style="top: 68.2%; left: 74.2%; width: 5.2%; height: 6.4%;"
+        >
+          <div class="tooltip">
+            <div class="tooltip-title">Unit 52</div>
+            <div class="tooltip-subtitle">122/325 Northbourne Ave</div>
+            <div class="tooltip-actions">
+              <a
+                class="tooltip-btn"
+                href="https://apply.sortedservices.com/#/properties?id=e47729f1-f74e-409f-a81b-86649af4036f&type=t&agencyCode=AU_RUIZ"
+                target="_blank"
+                rel="noopener noreferrer"
+              >Apply</a>
+              <a
+                class="tooltip-btn secondary"
+                href="https://virtual-tour.ipropertyexpress.com/vt/tour/56c4dddf-014d-419e-a966-58568b771b4b"
+                target="_blank"
+                rel="noopener noreferrer"
+              >Virtual Tour</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="floor-wrapper" id="floor0006">
+        <img class="floor-image" src="./0006.png" alt="Floor 0006" />
+      </div>
+
+      <div class="floor-wrapper" id="floor0007">
+        <img class="floor-image" src="./0007.png" alt="Floor 0007" />
+      </div>
+
+      <div class="floor-wrapper" id="floor0008">
+        <img class="floor-image" src="./0008.png" alt="Floor 0008" />
+      </div>
+
+      <div class="floor-wrapper" id="floor0009">
+        <img class="floor-image" src="./0009.png" alt="Floor 0009" />
+      </div>
+
+      <div class="floor-wrapper" id="floor0010">
+        <img class="floor-image" src="./0010.png" alt="Floor 0010" />
+      </div>
+
+      <div class="floor-wrapper" id="floor0011">
+        <img class="floor-image" src="./0011.png" alt="Floor 0011" />
+      </div>
+
+      <div class="floor-wrapper" id="floor0012">
+        <img class="floor-image" src="./0012.png" alt="Floor 0012" />
+      </div>
+    </div>
+
+    <div class="panel">
+      <strong>Next step:</strong><br />
+      Replace the 3 sample <code>href</code> links with the real Apply links for units 244, 245, and 246.<br />
+      If the blue boxes are slightly off, adjust the <code>top</code>, <code>left</code>, <code>width</code>, and <code>height</code> values a little until they match the units exactly.
     </div>
   </div>
 
   <script>
     function showFloor(id, btn) {
-      document.querySelectorAll('.floor-image').forEach(img => {
-        img.classList.remove('active');
+      document.querySelectorAll('.floor-wrapper').forEach(wrap => {
+        wrap.classList.remove('active');
       });
 
       document.querySelectorAll('.tab-btn').forEach(button => {

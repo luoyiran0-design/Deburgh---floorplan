@@ -163,7 +163,6 @@
       transition: all 0.2s ease;
       cursor: pointer;
       z-index: 100;
-      border-radius: 8px;
     }
 
     .hotspot:hover {
@@ -226,6 +225,10 @@
       transform: scale(1.03);
     }
 
+    .block-hotspot {
+      border-radius: 8px;
+    }
+
     .unit-label {
       font-size: 10px;
       line-height: 1.1;
@@ -233,6 +236,23 @@
       user-select: none;
       text-align: center;
       padding: 2px;
+    }
+
+    .ruiz-circle {
+      border-radius: 999px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.18);
+      overflow: visible;
+    }
+
+    .ruiz-letter {
+      font-size: 42px;
+      line-height: 1;
+      font-weight: 900;
+      color: #111111;
+      font-family: Arial, Helvetica, sans-serif;
+      transform: translateY(-1px);
+      user-select: none;
+      pointer-events: none;
     }
 
     .tooltip {
@@ -315,24 +335,18 @@
 
     @media (max-width: 768px) {
       body { padding: 18px; }
-
       .layout { flex-direction: column; }
-
       .sidebar {
         width: 100%;
         position: static;
         order: -1;
       }
-
       .tabs { gap: 8px; }
-
       .tab-btn {
         font-size: 13px;
         padding: 8px 12px;
       }
-
       .tooltip { min-width: 190px; }
-
       .unit-label { font-size: 9px; }
     }
   </style>
@@ -356,41 +370,18 @@
         </div>
 
         <div class="viewer">
-          <div class="floor-wrapper active" id="floor0005">
-            <img class="floor-image" src="./0005.png" alt="Floor 0005" />
-          </div>
-
-          <div class="floor-wrapper" id="floor0006">
-            <img class="floor-image" src="./0006.png" alt="Floor 0006" />
-          </div>
-
-          <div class="floor-wrapper" id="floor0007">
-            <img class="floor-image" src="./0007.png" alt="Floor 0007" />
-          </div>
-
-          <div class="floor-wrapper" id="floor0008">
-            <img class="floor-image" src="./0008.png" alt="Floor 0008" />
-          </div>
-
-          <div class="floor-wrapper" id="floor0009">
-            <img class="floor-image" src="./0009.png" alt="Floor 0009" />
-          </div>
-
-          <div class="floor-wrapper" id="floor0010">
-            <img class="floor-image" src="./0010.png" alt="Floor 0010" />
-          </div>
-
-          <div class="floor-wrapper" id="floor0011">
-            <img class="floor-image" src="./0011.png" alt="Floor 0011" />
-          </div>
-
-          <div class="floor-wrapper" id="floor0012">
-            <img class="floor-image" src="./0012.png" alt="Floor 0012" />
-          </div>
+          <div class="floor-wrapper active" id="floor0005"><img class="floor-image" src="./0005.png" alt="Level 1" /></div>
+          <div class="floor-wrapper" id="floor0006"><img class="floor-image" src="./0006.png" alt="Level 2" /></div>
+          <div class="floor-wrapper" id="floor0007"><img class="floor-image" src="./0007.png" alt="Level 3" /></div>
+          <div class="floor-wrapper" id="floor0008"><img class="floor-image" src="./0008.png" alt="Level 4" /></div>
+          <div class="floor-wrapper" id="floor0009"><img class="floor-image" src="./0009.png" alt="Level 5" /></div>
+          <div class="floor-wrapper" id="floor0010"><img class="floor-image" src="./0010.png" alt="Level 6" /></div>
+          <div class="floor-wrapper" id="floor0011"><img class="floor-image" src="./0011.png" alt="Level 7" /></div>
+          <div class="floor-wrapper" id="floor0012"><img class="floor-image" src="./0012.png" alt="Level 8" /></div>
         </div>
 
         <div class="panel">
-          Restored to the original 0005-first public version, with the Morandi color system kept in place.
+          This version reads hotspot data from your Google Sheet via Apps Script.
         </div>
       </div>
 
@@ -408,101 +399,66 @@
   </div>
 
   <script>
-    const floorData = {
-      floor0005: [
-        {
-          type: 'block',
-          color: 'orange-unit',
-          label: 'UNIT 52 APT 122',
-          title: 'Unit 52',
-          subtitle: '122/325 Northbourne Ave',
-          top: '45%',
-          left: '64%',
-          width: '4%',
-          height: '9%',
-          apply: 'https://apply.sortedservices.com/#/properties?id=e47729f1-f74e-409f-a81b-86649af4036f&type=t&agencyCode=AU_RUIZ',
-          tour: 'https://virtual-tour.ipropertyexpress.com/vt/tour/56c4dddf-014d-419e-a966-58568b771b4b'
-        },
-        {
-          type: 'block',
-          color: 'orange-unit',
-          label: 'UNIT 54 APT 121',
-          title: 'Unit 54',
-          subtitle: '121/327 Northbourne Ave',
-          top: '45%',
-          left: '72%',
-          width: '3.8%',
-          height: '9%',
-          apply: 'https://apply.sortedservices.com/#/properties?id=da3856e4-d459-4a62-9925-291497eb1c31&type=t&agencyCode=AU_RUIZ',
-          tour: 'https://virtual-tour.ipropertyexpress.com/vt/tour/5c585193-6382-4a85-b447-a56a9b6ec288'
-        },
-        {
-          type: 'block',
-          color: 'blue-unit',
-          label: 'UNIT 38 APT 113',
-          title: 'Unit 38',
-          subtitle: '113/52 De Burgh Street',
-          top: '34.5%',
-          left: '75%',
-          width: '10%',
-          height: '4%',
-          apply: 'https://apply.sortedservices.com/#/properties?id=da3856e4-d459-4a62-9925-291497eb1c31&type=t&agencyCode=AU_RUIZ',
-          tour: 'https://virtual-tour.ipropertyexpress.com/vt/tour/5c585193-6382-4a85-b447-a56a9b6ec288'
-        },
-        {
-          type: 'block',
-          color: 'orange-unit',
-          label: 'UNIT 26 APT 106',
-          title: 'Unit 26',
-          subtitle: '106/52 De Burgh Street',
-          top: '24%',
-          left: '72%',
-          width: '3.5%',
-          height: '9%',
-          apply: 'https://apply.sortedservices.com/#/properties?id=da3856e4-d459-4a62-9925-291497eb1c31&type=t&agencyCode=AU_RUIZ',
-          tour: 'https://virtual-tour.ipropertyexpress.com/vt/tour/5c585193-6382-4a85-b447-a56a9b6ec288'
-        }
-      ],
-      floor0006: [],
-      floor0007: [],
-      floor0008: [],
-      floor0009: [],
-      floor0010: [],
-      floor0011: [],
-      floor0012: []
-    };
+    const SHEET_JSON_URL = 'AKfycbxFyBSn8WSeT6l9uTa_fOPUEp_gkJx9s20OVbICmekUOqmWuzNxR8qt20ltz4mr7TCA8Q';
 
+    let floorData = {};
     let activeColorFilter = null;
 
+    async function loadFloorData() {
+      try {
+        const response = await fetch(SHEET_JSON_URL);
+        if (!response.ok) throw new Error('Failed to load sheet data');
+        floorData = await response.json();
+        renderHotspots();
+        applyCurrentFilter();
+      } catch (error) {
+        console.error(error);
+      }
+    }
+
     function renderHotspots() {
+      document.querySelectorAll('.floor-wrapper').forEach(floor => {
+        floor.querySelectorAll('.generated-hotspot').forEach(node => node.remove());
+      });
+
       Object.keys(floorData).forEach(floorId => {
         const floor = document.getElementById(floorId);
         if (!floor) return;
 
-        floor.querySelectorAll('.generated-hotspot').forEach(node => node.remove());
-
         floorData[floorId].forEach(item => {
           const hotspot = document.createElement('div');
-          hotspot.className = `hotspot generated-hotspot ${item.color}`;
+          hotspot.className = `hotspot generated-hotspot ${item.color} ${item.type === 'circle' ? 'ruiz-circle' : 'block-hotspot'}`;
 
           hotspot.style.top = item.top;
           hotspot.style.left = item.left;
-          hotspot.style.width = item.width;
-          hotspot.style.height = item.height;
 
-          const label = document.createElement('div');
-          label.className = 'unit-label';
-          label.textContent = item.label;
-          hotspot.appendChild(label);
+          if (item.type === 'block') {
+            hotspot.style.width = item.width;
+            hotspot.style.height = item.height;
+
+            const label = document.createElement('div');
+            label.className = 'unit-label';
+            label.textContent = item.label;
+            hotspot.appendChild(label);
+          } else {
+            hotspot.style.width = item.width || '64px';
+            hotspot.style.height = item.height || '64px';
+
+            const r = document.createElement('div');
+            r.className = 'ruiz-letter';
+            r.textContent = 'R';
+            hotspot.appendChild(r);
+          }
 
           const tooltip = document.createElement('div');
           tooltip.className = 'tooltip';
           tooltip.innerHTML = `
-            <div class="tooltip-title">${item.title}</div>
-            <div class="tooltip-subtitle">${item.subtitle}</div>
+            <div class="tooltip-title">${item.title || ''}</div>
+            <div class="tooltip-subtitle">${item.subtitle || ''}</div>
             <div class="tooltip-actions">
-              <a class="tooltip-btn" href="${item.apply}" target="_blank" rel="noopener noreferrer">Apply</a>
-              <a class="tooltip-btn secondary" href="${item.tour}" target="_blank" rel="noopener noreferrer">Virtual Tour</a>
+              ${item.apply ? `<a class="tooltip-btn" href="${item.apply}" target="_blank" rel="noopener noreferrer">Apply</a>` : ''}
+              ${item.tour ? `<a class="tooltip-btn secondary" href="${item.tour}" target="_blank" rel="noopener noreferrer">Virtual Tour</a>` : ''}
+              ${item.video ? `<a class="tooltip-btn secondary" href="${item.video}" target="_blank" rel="noopener noreferrer">Video</a>` : ''}
             </div>
           `;
           hotspot.appendChild(tooltip);
@@ -558,8 +514,7 @@
       });
     });
 
-    renderHotspots();
-    applyCurrentFilter();
+    loadFloorData();
   </script>
 </body>
 </html>
